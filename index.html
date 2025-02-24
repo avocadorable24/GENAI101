@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orion's Belt Facts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e6e6fa; /* Light lilac background */
+            color: #4b0082; /* Indigo text */
+            text-align: center;
+            padding: 50px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        button {
+            background-color: #9370db; /* Medium purple */
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #7a68b1; /* Darker purple on hover */
+        }
+
+        .fact-display {
+            margin-top: 20px;
+            font-size: 18px;
+            padding: 20px;
+            border: 1px solid #4b0082;
+            border-radius: 5px;
+            background-color: #ffffff; /* White background for facts */
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .fact-display.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Learn About Orion's Belt</h1>
+        <button id="factButton">Show a Random Fact</button>
+        <div id="factDisplay" class="fact-display"></div>
+    </div>
+    <script>
+        const orionsBeltFacts = [
+            "Orion's Belt consists of three bright stars: Alnitak, Alnilam, and Mintaka.",
+            "These stars are located in the Orion constellation, which is one of the most recognizable constellations in the night sky.",
+            "The stars in Orion's Belt are approximately 1,200 to 1,500 light-years away from Earth.",
+            "Alnitak is a hot blue supergiant star, while Alnilam is a blue supergiant and Mintaka is a binary star system.",
+            "Orion's Belt is often used by navigators and astronomers as a reference point for locating other stars and constellations.",
+            "The three stars are aligned in a straight line, making them easily identifiable in the night sky.",
+            "Orion's Belt is part of a larger asterism known as the Orion constellation, which includes other notable stars like Betelgeuse and Rigel.",
+            "In various cultures, Orion's Belt has been associated with myths and legends, often representing hunters or warriors.",
+            "The stars of Orion's Belt are relatively young, with ages ranging from 8 to 10 million years.",
+            "Orion's Belt is best visible in the evening sky during winter months in the Northern Hemisphere."
+        ];
+
+        document.getElementById('factButton').addEventListener('click', function() {
+            const randomIndex = Math.floor(Math.random() * orionsBeltFacts.length);
+            const fact = orionsBeltFacts[randomIndex];
+            const factDisplay = document.getElementById('factDisplay');
+            
+            factDisplay.textContent = fact;
+            factDisplay.classList.add('show');
+
+            // Remove the fact after a short delay for subtle animation
+            setTimeout(() => {
+                factDisplay.classList.remove('show');
+            }, 5000); // Display for 5 seconds
+        });
+    </script>
+</body>
+</html>
